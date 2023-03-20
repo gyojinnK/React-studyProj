@@ -1,0 +1,32 @@
+[ React Point memo ]
+.js에서의 html은 실제 html이 아니라 JSX(.js파일에서 쓰는 html대용품)
+
+리액트에 사용되는 JSX 문법
+  - class를 지정할 때 className
+  - SX로 인라인 방식 스타일 넣을 때 : style={}
+      값을 넣을 땐  Object형식으로 기입 {{스타일명 : '값'}}, 
+      javaScript에서 "-"는 -의 의미로 해석됨 -> 속성은 카멜케이스로 사용
+  - 데이터 바인딩 : JSX로 변수 넣을 땐 { 중괄호 }, 상상하는 모든 곳에 데이터바인딩 사용사능
+
+리액트 특성
+  - return() 안에는 병렬로 태그 2개 이상 기입금지
+    -> ex) 
+        return{
+            <div className="App">
+            </div>
+            <div></div>  --> (X) 오류남
+        }
+
+  - 자료 잠깐 저장할 땐 변수 사용 ex) let post = ...
+  - 다른방법 State (중요***)
+    1. import { useState }
+    2. useState(보관할 데이터)
+    3. let [작명, 작명]
+    -> ex) let [a, b] = useState(데이터); 
+        - a : State에 보관했던 자료가 나옴, { a }등 사용가능
+        - b : State 변경을 도와주는 함수
+        + Destructuring 문법을 사용
+    4. 기존 변수 문법이 있는데 useState를 사용하는 이유
+        - 일반 변수는 갑자기 변경되면 html에 자동으로 반영되지 안됨
+        - state는 변경사항을 자동으로 재랜더링해서 변경시켜줌
+        즉, 변동시 자동으로 html에 반영되게 만들고 싶으면 state!
